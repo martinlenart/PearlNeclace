@@ -60,7 +60,7 @@
         }
         internal static class Factory
         {
-            internal static IPearl CreateRandomPearl()
+            internal static Pearl CreateRandomPearl()
             {
                 var p = new Pearl();
                 p.RandomInit();

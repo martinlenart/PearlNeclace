@@ -56,7 +56,7 @@ namespace PearlNecklace
         #region Class Factory for creating an instance filled with Random data
         internal static class Factory
         {
-            internal static INecklace CreateRandomNecklace(int NrOfItems)
+            internal static Necklace CreateRandomNecklace(int NrOfItems)
             {
                 var necklace = new Necklace();
                 for (int i = 0; i < NrOfItems; i++)
