@@ -5,7 +5,18 @@
         public const decimal PearlBasePrice = 50M;
         public const int PearlMinSize = 5;
         public const int PearlMaxSize = 25;
-        public int Size { get; set; }
+
+        int _size;
+        public int Size
+        {
+            get => _size;
+            set
+            {
+                if (value < PearlMinSize || value > PearlMaxSize)
+                    throw new ArgumentOutOfRangeException(nameof(value));
+                _size = value;
+            }
+        }
         public PearlColor Color { get; set; }
         public PearlShape Shape { get; set; }
         public PearlType Type { get; set; }
@@ -16,7 +27,7 @@
                 var price = Size * PearlBasePrice;
                 if (Type == PearlType.SaltWater)
                     price *= 2;
-                return price;   
+                return price;
             }
         }
 
@@ -34,7 +45,7 @@
         }
 
         public bool Equals(IPearl other) => (Size, Color, Shape, Type) == (other.Size, other.Color, other.Shape, other.Type);
-        public override bool Equals(object obj) => Equals(obj as Pearl);
+        public override bool Equals(object obj) => Equals(obj as IPearl);
         public override int GetHashCode() => (Size, Color, Shape, Type).GetHashCode();
         #endregion
 

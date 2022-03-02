@@ -14,6 +14,7 @@ namespace PearlNecklace
         {
             get
             {
+                //_stringOfPearls.Sum(x => x.Price);
                 var price = 0M;
                 foreach (var p in _stringOfPearls)
                 {
@@ -27,6 +28,7 @@ namespace PearlNecklace
 
         public int Count(PearlType type)
         {
+            //_stringOfPearls.Where(o => o.Type == PearlType.SaltWater).Count();
             int c = 0;
             foreach (var item in _stringOfPearls)
             {

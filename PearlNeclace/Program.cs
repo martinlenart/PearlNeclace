@@ -37,20 +37,3 @@ else
 }
 
 
-//Reference vs Value Pearl
-Console.WriteLine("\nReference vs Value Pearl");
-var p1 = Pearl.Factory.CreateRandomPearl();
-var p2 = Pearl.Factory.CreateRandomPearl();
-Console.WriteLine("Original pearls");
-Console.WriteLine($"p1: {p1}");
-Console.WriteLine($"p2: {p2}");
-p1 = p2;
-p1.Color = PearlColor.White;
-p1.Type = PearlType.SaltWater;
-p1.Shape = PearlShape.DropShaped;
-Console.WriteLine("\nAfter p1 = p2 assignment and change p2");
-Console.WriteLine($"p1: {p1}");
-Console.WriteLine($"p2: {p2}"); 
-
-
-
