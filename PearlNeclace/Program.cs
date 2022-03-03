@@ -37,3 +37,8 @@ else
 }
 
 
+//Necklace written to file using Stream Adapter Layer
+Console.WriteLine("\nNecklace written to file using Stream Adapter Layer");
+
+var s = necklace.Write("Necklace.txt");
+Console.WriteLine(s);

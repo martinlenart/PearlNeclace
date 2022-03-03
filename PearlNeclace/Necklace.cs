@@ -67,5 +67,25 @@ namespace PearlNecklace
             }
          }
         #endregion
+
+        #region Methods for writing a neclace to disk
+        public string Write(string filename)
+        {
+            string fn = fname(filename);
+            using (FileStream fs = File.Create(fn))
+            using (TextWriter writer = new StreamWriter(fs))
+            {
+                writer.WriteLine(this);
+            }
+            return fn;    
+        }
+        static string fname(string name)
+        {
+            var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            documentPath = Path.Combine(documentPath, "ADOP", "Examples");
+            if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
+            return Path.Combine(documentPath, name);
+        }
+        #endregion
     }
 }
