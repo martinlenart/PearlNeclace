@@ -36,15 +36,15 @@
         #region IComparable and IEquatable
         public int CompareTo(IPearl other)
         {
-            if (Size != other.Size)
-                return Size.CompareTo(other.Size);
-            if (Color != other.Color)
+            if (this.Size != other.Size)
+                return this.Size.CompareTo(other.Size);
+            if (this.Color != other.Color)
                 return Color.CompareTo(other.Color);
 
-            return Shape.CompareTo(other.Shape);
+            return this.Shape.CompareTo(other.Shape);
         }
 
-        public bool Equals(IPearl other) => (Size, Color, Shape, Type) == (other.Size, other.Color, other.Shape, other.Type);
+        public bool Equals(IPearl other) => (this.Size, this.Color, this.Shape, this.Type) == (other.Size, other.Color, other.Shape, other.Type);
         public override bool Equals(object obj) => Equals(obj as IPearl);
         public override int GetHashCode() => (Size, Color, Shape, Type).GetHashCode();
         #endregion
@@ -58,9 +58,9 @@
             this.Shape = (PearlShape)rnd.Next((int)PearlShape.Round, (int)PearlShape.DropShaped + 1);
             this.Type = (PearlType)rnd.Next((int)PearlType.FreshWater, (int)PearlType.SaltWater + 1);
         }
-        internal static class Factory
+        public static class Factory
         {
-            internal static Pearl CreateRandomPearl()
+            public static Pearl CreateRandomPearl()
             {
                 var p = new Pearl();
                 p.RandomInit();

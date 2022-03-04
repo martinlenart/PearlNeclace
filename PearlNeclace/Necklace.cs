@@ -28,7 +28,7 @@ namespace PearlNecklace
 
         public int Count(PearlType type)
         {
-            //_stringOfPearls.Where(o => o.Type == PearlType.SaltWater).Count();
+            //_stringOfPearls.Where(o => o.Type == type).Count();
             int c = 0;
             foreach (var item in _stringOfPearls)
             {
@@ -50,8 +50,19 @@ namespace PearlNecklace
 
 
         public void Sort() => _stringOfPearls.Sort();
-        public int IndexOf(IPearl pearl) => _stringOfPearls.IndexOf(pearl); 
+        public int IndexOf(IPearl pearl) => _stringOfPearls.IndexOf(pearl);
 
+        public bool HasPearlSize(int size)
+        {
+            return _stringOfPearls.Find(x => x.Size == size) != null;
+        }
+        public Necklace FindAllOfSize(int size)
+        {
+            var n = new Necklace();
+            n._stringOfPearls = this._stringOfPearls.FindAll(x => x.Size == size);
+
+            return n;
+        }
 
         #region Class Factory for creating an instance filled with Random data
         internal static class Factory
