@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,21 @@ using System.Threading.Tasks;
 
 namespace PearlNecklace
 {
-    public class Necklace : INecklace
+    public class Necklace : INecklace, IEnumerable<IPearl>
     {
-        List<IPearl> _stringOfPearls = new List<IPearl>();  
+        private List<IPearl> _stringOfPearls = new List<IPearl>();
+
+        public IEnumerator<IPearl> GetEnumerator()
+        {
+            foreach (var item in _stringOfPearls)
+            {
+                yield return item;
+            };
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator(); // needed as IEnumerable<> implmenents IEnumerable.
+                                                                    // keep private
+
         public IPearl this[int idx] => _stringOfPearls[idx];
         public decimal Price
         {
@@ -86,6 +99,7 @@ namespace PearlNecklace
             if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
             return Path.Combine(documentPath, name);
         }
-        #endregion
+
+         #endregion
     }
 }

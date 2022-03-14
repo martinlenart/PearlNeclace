@@ -15,6 +15,20 @@ Console.WriteLine($"Nr of Freshwater pearls: {necklace.Count(PearlType.FreshWate
 Console.WriteLine($"Nr of Saltwater pearls: {necklace.Count(PearlType.SaltWater)}");
 Console.WriteLine($"Price of the necklace: {necklace.Price}");
 
+Console.WriteLine("\nFor loop");
+for (int i = 0; i < necklace.Count(); i++)
+{
+    Console.WriteLine(necklace[i]);
+}
+
+Console.WriteLine("\nFor each loop");
+foreach (var item in necklace)
+{
+    Console.WriteLine(item);
+}
+Console.WriteLine(necklace.Sum(p=>p.Price));
+
+/*
 //Sort the Necklace
 Console.WriteLine("\nSort the Necklace");
 necklace.Sort();
@@ -42,3 +56,4 @@ Console.WriteLine("\nNecklace written to file using Stream Adapter Layer");
 
 var s = necklace.Write("Necklace.txt");
 Console.WriteLine(s);
+*/
