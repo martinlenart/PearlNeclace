@@ -6,6 +6,10 @@ Console.WriteLine("Create a couple of Random pearls");
 Console.WriteLine(Pearl.Factory.CreateRandomPearl());
 Console.WriteLine(Pearl.Factory.CreateRandomPearl());
 
+//Create using empty constructor
+Console.WriteLine("\nCreate an empty pearl");
+Console.WriteLine(new Pearl());
+
 //Create a random Necklaces
 Console.WriteLine("\nCreate a random Necklaces");
 var necklace = Necklace.Factory.CreateRandomNecklace(35);
@@ -50,6 +54,10 @@ else
     Console.WriteLine($"Pearl found in position {idx}");
 }
 
+//Find all 10mm pearls in a new necklace
+Console.WriteLine("\nFind all 10mm pearls in a new necklace");
+var necklace10 = necklace.FindAllOfSize(10);
+Console.WriteLine(necklace10);
 
 //Necklace written to file using Stream Adapter Layer
 Console.WriteLine("\nNecklace written to file using Stream Adapter Layer");
